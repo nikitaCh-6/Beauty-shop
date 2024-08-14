@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:  #FCE7F3;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .header h2 {
+            margin: 0;
+            color: #DB2777;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        /* .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        } */
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #DB2777;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        /* .form-group input[type="email"],
+        .form-group input[type="password"]:hover {
+            border-color: #DB2777;
+        } */
+        .form-group input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #DB2777;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        /* .form-group input[type="submit"]:hover {
+            background-color: #0056b3;
+        } */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Login</h2>
+        </div>
+        <form action="login.php" method="post">
+            <div class="form-group">
+                <!-- <label for="email">Email</label> -->
+                <input type="email" id="email" name="email" placeholder="Enter Email" required>
+            </div>
+            <div class="form-group">
+                <!-- <label for="password">Password</label> -->
+                <input type="password" id="password" name="password" placeholder="Enter Password" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Log in">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+</head>
+<body>
+    <h1>Your Cart</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="cartItems"></tbody>
+    </table>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let cartItems = document.getElementById('cartItems');
+
+        function updateCartDisplay() {
+            cartItems.innerHTML = '';
+            cart.forEach((item, index) => {
+                let row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>$${item.price}</td>
+                    <td>${item.quantity}</td>
+                    <td>$${item.price * item.quantity}</td>
+                    <td><button onclick="removeFromCart(${index})">Remove</button></td>
+                `;
+
+                cartItems.appendChild(row);
+            });
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+        }
+
+        updateCartDisplay();
+    </script>
+</body>
+</html>
